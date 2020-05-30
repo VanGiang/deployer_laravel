@@ -4,7 +4,7 @@ namespace Deployer;
 require 'recipe/laravel.php';
 
 // Project name
-set('application', 'laravel-app');
+set('application', 'my_project');
 
 // Project repository
 set('repository', 'git@github.com:VanGiang/deployer_laravel.git');
@@ -19,11 +19,20 @@ add('shared_dirs', []);
 // Writable dirs by web server
 add('writable_dirs', []);
 
+before('deploy', 'what_branch');
+
+task('what_branch', function () {
+    $branch = ask('What branch to deploy?');
+
+    on(roles('app'), function ($host) use ($branch) {
+        set('branch', $branch);
+    });
+})->local();
 
 // Hosts
 
 host('178.128.94.40')
-    ->user('deployer1')
+    ->user('deployer')
     ->identityFile('~/.ssh/deployerkey')
     ->set('deploy_path', '/var/www/html/laravel-app');
 
