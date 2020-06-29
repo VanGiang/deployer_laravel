@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- custom -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="{{ asset('js/index2.js') }}"></script>
+    <script src="{{ asset('js/index1.js') }}"></script>
 </head>
 <body>
     <div id="app">

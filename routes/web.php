@@ -15,4 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+
+Route::resource('player', 'PlayerController');
+Route::resource('statistic', 'StatisticController');
+Route::resource('rate', 'RateController');
+Route::resource('matches', 'MatchController');
+
 Route::get('/', 'HomeController@index')->name('home');
